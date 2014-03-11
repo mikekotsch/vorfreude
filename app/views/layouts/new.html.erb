@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Make your own countdown – on Vorfreude.to</title>
+
+    <meta property="og:title" content="Share your Vorfreude">
+    <meta property="og:type" content="activity">
+    <meta property="og:url" content="http://vorfreude.mikekotsch.de">
+    <meta property="og:image" content="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/t1/p320x320/1613776_10152267307180649_1964006563_n.jpg">
+    <meta property="og:site_name" content="Vorfreude">
+    <meta property="og:description" content="I'm looking forward to NAME - let's share the Vorfreude. And see you there.">
+
+    <link rel="stylesheet" href="https://assets-mkotsch.s3.amazonaws.com/vorfreude/css/bootstrap-theme.min.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="https://assets-mkotsch.s3.amazonaws.com/vorfreude/css/bootstrap.min.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="https://assets-mkotsch.s3.amazonaws.com/vorfreude/css/cover.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="https://assets-mkotsch.s3.amazonaws.com/vorfreude/css/ss-social-regular.css" type="text/css" media="screen">
+
+    <script src="https://assets-mkotsch.s3.amazonaws.com/vorfreude/js/jquery.min.js" type="text/javascript"></script>
+    <script src="https://assets-mkotsch.s3.amazonaws.com/vorfreude/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="https://assets-mkotsch.s3.amazonaws.com/vorfreude/js/jquery.timer.js" type="text/javascript"></script>
+    <script src="https://assets-mkotsch.s3.amazonaws.com/vorfreude/js/docs.min.js" type="text/javascript"></script>
+
+    <style type="text/css" media="screen">
+      select {
+        color:black;
+      }
+    </style>
+
+</head>
+
+  <body>
+
+    <div class="site-wrapper new-countdown">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">Vorfreude</h3>
+              <ul class="nav masthead-nav">
+                <li class="active"><%= link_to 'Share your Vorfreude', new_cd_path %></li>
+                <li><%= link_to 'Trending', p_trending_path %></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="inner cover text-left col-md-8 col-md-offset-2">
+            <h1 class="cover-heading text-center">Share your Vorfreude</h1>
+            <%= render 'form' %>
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Made with excitement by <a href="https://twitter.com/mikekotsch">@mikekotsch</a>.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+</body>
+</html>

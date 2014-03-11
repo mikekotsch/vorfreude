@@ -1,0 +1,93 @@
+<p id="notice"><%= notice %></p>
+
+<% content_for :pagetitle do %>
+	"<%= @cd.title %>" – on Vorfreude.to
+<% end %>
+
+<% content_for :title do %>
+  <%= @cd.title %>
+<% end %>
+
+<% content_for :time do %>
+  <script type='text/javascript'>
+
+		var count = '<%= @cd.time.to_i %>';
+
+		var created_at = '<%= @cd.created_at.to_i %>';
+		var now = Math.round(new Date().getTime() / 1000);
+		var days, hours, minutes, seconds, tmp, width;
+
+		var timer = $.timer(
+			function() {
+				tmp = count-now;
+				width = (now-created_at)/(count-created_at)*100;
+
+				if(tmp <=0 ) {
+					$('.count').html('This event is over.');
+					$('.progress-bar').attr('style', 'width:100%');
+					$('.progress-bar').attr('aria-valuenow', 100);
+				}
+				else {
+					seconds = tmp % 60;
+					if (seconds < 10) {
+						seconds = '0'+seconds;
+					}
+					minutes = Math.floor(tmp/60) % 60;
+					if (minutes < 10) {
+						minutes = '0'+minutes;
+					}
+					hours 	= Math.floor(tmp/60/60) % 24;
+					if (hours < 10) {
+						hours = '0'+hours;
+					}
+					days		= Math.floor(tmp/60/60/24);
+					if (days < 10) {
+						days = '0'+days;
+					}
+
+					$('.count').html(days+':'+hours+':'+minutes+':'+seconds);
+					$('.progress-bar').attr('style', 'width:' + Math.round(width) + '%');
+					$('.progress-bar').attr('aria-valuenow', Math.round(width));
+				}
+				count--;
+			}, 1000, true
+		);
+
+  </script>
+<% end %>
+
+<% content_for :image do %>
+	<style type="text/css" media="screen">
+		.site-wrapper {
+  		background: url('<%= @cd.image_url if @cd.image? %>') no-repeat top center;
+			background-size: 110% auto;
+		}
+	</style>
+<% end %>
+
+<% content_for :link do %>
+	<% if @cd.link? %>
+		<%= link_to 'Details', @cd.link, :class => 'btn btn-default btn-xs' %>
+	<% end %>
+<% end %>
+
+<% content_for :url do %>
+	<%= cd_url %>
+<% end %>
+
+<% content_for :image_url do %>
+	<%= @cd.image_url %>
+<% end %>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag(@cd.image_url, :width => 600) if @cd.image.present? %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @cd.link %>
+</p>
+
+<%= link_to 'Edit', edit_cd_path(@cd) %> |
+<%= link_to 'Back', cds_path %>
