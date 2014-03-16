@@ -52,6 +52,20 @@
 				count--;
 			}, 1000, true
 		);
+		
+		if($('.count').is(':empty')) {
+			
+			
+		}
+		
+		else {
+			
+		  	$('#countdown').delay(1000).fadeIn('slow', function () {
+		     	$('#title').animate({'opacity': 'show', 'paddingTop': 0}, 1000);
+			 	$('#time').animate({'opacity': 'show'}, 1000);
+				$('#bar').animate({'opacity': 'show'}, 2000);
+		  	});
+		}
 
   </script>
 <% end %>
